@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct SwiftChartsAppApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+#if os(iOS)
+      ContentView()
+#else
+      MacContentView()
+#endif
     }
+  }
 }
