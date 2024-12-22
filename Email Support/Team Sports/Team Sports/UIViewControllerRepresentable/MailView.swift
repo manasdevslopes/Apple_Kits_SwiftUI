@@ -14,7 +14,7 @@ import MessageUI
 typealias MailViewCallback = ((Result<MFMailComposeResult, Error>) -> Void)?
 
 struct MailView: UIViewControllerRepresentable {
-  @Environment(\.presentationMode) var presentation
+  @Environment(\.dismiss) var dismiss
   @Binding var supportEmail: SupportEmail
   let callback: MailViewCallback
   
@@ -32,14 +32,14 @@ struct MailView: UIViewControllerRepresentable {
   func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: UIViewControllerRepresentableContext<MailView>) { }
   
   class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
-    @Binding var presentation: PresentationMode
     @Binding var data: SupportEmail
     let callback: MailViewCallback
+    let dismiss: DismissAction
     
-    init(presentation: Binding<PresentationMode>, data: Binding<SupportEmail>, callback: MailViewCallback) {
-      _presentation = presentation
+    init(data: Binding<SupportEmail>, callback: MailViewCallback, dismiss: DismissAction) {
       _data = data
       self.callback = callback
+      self.dismiss = dismiss
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: (any Error)?) {
@@ -48,12 +48,12 @@ struct MailView: UIViewControllerRepresentable {
       } else {
         callback?(.success(result))
       }
-      $presentation.wrappedValue.dismiss()
+      dismiss()
     }
   }
   
   func makeCoordinator() -> Coordinator {
-    Coordinator(presentation: presentation, data: $supportEmail, callback: callback)
+    Coordinator(data: $supportEmail, callback: callback, dismiss: dismiss)
   }
   
   static var canSendMail: Bool {
