@@ -35,5 +35,6 @@ Apple Kits
 
  9. Structured Logging (import OSLog)
  10. WebView Component From Office
+ 11. Translations API prior iOS 18 and iOS 18+
 
 
