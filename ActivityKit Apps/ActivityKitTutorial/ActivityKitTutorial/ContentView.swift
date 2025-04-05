@@ -41,6 +41,13 @@ extension ContentView {
   func updateActivity() {
     let state = TimerAttributes.TimerStatus(endTime: Date().addingTimeInterval(60 * 10))
     
+    /*if let activityLast = Activity<TimerAttributes>.activities.last {
+      Task {
+        await activityLast.update(ActivityContent(state: state, staleDate: nil))
+      }
+    }
+    Or, below Task's code. THEN no need to store in Local State Variable "activity"
+    */
     Task {
       await activity?.update(ActivityContent(state: state, staleDate: nil))
     }
@@ -48,7 +55,13 @@ extension ContentView {
   
   func stopActivity() {
     let state = TimerAttributes.TimerStatus(endTime: .now)
-    
+    /*if let activityLast = Activity<TimerAttributes>.activities.last {
+      Task {
+        await activityLast.end(activityLast.content, dismissalPolicy: .immediate)
+      }
+    }
+     Or, below Task's code. THEN no need to store in Local State Variable "activity"
+    */
     Task {
       await activity?.end(ActivityContent(state: state, staleDate: nil), dismissalPolicy: .immediate)
     }
