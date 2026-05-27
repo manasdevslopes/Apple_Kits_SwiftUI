@@ -21,21 +21,25 @@ Apple Kits
 ![Simulator Screenshot - iPhone 16 - 2024-12-30 at 16 26 17](https://github.com/user-attachments/assets/7d196d8b-6dd4-4978-921c-1bcbd08a7578)
 
 
-6. Swift Charts
+6. Swift Charts 
 ![Simulator Screenshot - iPhone 16 - 2024-12-30 at 16 28 44](https://github.com/user-attachments/assets/f4bc2a20-270a-4b3d-8219-5e9fba9f0083)
 
 
-7. Core Bluetooth
+7. Swift Bar Charts with Time vs Usage
+
+
+8. Core Bluetooth
 ![Simulator Screenshot - iPhone 16 - 2024-12-30 at 16 29 23](https://github.com/user-attachments/assets/4e96db7b-ba39-4d23-8eb0-2fabc11cd548)
 
 
-8. ShareSheet App - Component which helps open links into selectable browser by a user
+9. ShareSheet App - Component which helps open links into selectable browser by a user
 ![Simulator Screenshot - iPhone 16 - 2024-12-30 at 16 30 03](https://github.com/user-attachments/assets/104219aa-c4a7-4924-a0b4-55e56376b05d)
 
 
- 9. Structured Logging (import OSLog)
- 10. WebView Component From Office
- 11. Translations API prior iOS 18 and iOS 18+
- 12. Activity Kits & Dynamic Island
+ 10. Structured Logging (import OSLog)
+ 11. WebView Component From Office
+ 12. Translations API prior iOS 18 and iOS 18+
+13. Activity Kits & Dynamic Island
+14. 
 
 
